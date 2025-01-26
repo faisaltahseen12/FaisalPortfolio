@@ -1,0 +1,93 @@
+/* Glass Effect */
+.glass {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+}
+
+/* Neon Effects */
+.neon-border {
+  position: relative;
+}
+
+.neon-border::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: linear-gradient(45deg, 
+    var(--primary-color), 
+    var(--accent-color), 
+    var(--secondary-color)
+  );
+  border-radius: inherit;
+  z-index: -1;
+  animation: neon-border 3s linear infinite;
+}
+
+@keyframes neon-border {
+  0% { filter: blur(5px); }
+  50% { filter: blur(7px); }
+  100% { filter: blur(5px); }
+}
+
+/* Animated Background */
+.animated-bg {
+  position: relative;
+  overflow: hidden;
+}
+
+.animated-bg::before {
+  content: '';
+  position: absolute;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    45deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.03) 50%,
+    transparent 100%
+  );
+  animation: wave 8s linear infinite;
+}
+
+@keyframes wave {
+  0% { transform: translate(-50%, -50%) rotate(0deg); }
+  100% { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+/* Hover Effects */
+.hover-lift {
+  transition: transform 0.3s ease;
+}
+
+.hover-lift:hover {
+  transform: translateY(-5px);
+}
+
+.hover-glow:hover {
+  box-shadow: 0 0 20px var(--primary-color);
+}
+
+/* Text Effects */
+.gradient-text {
+  background: linear-gradient(
+    45deg,
+    var(--primary-color),
+    var(--accent-color)
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
+/* Grid Layouts */
+.auto-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(var(--min-width, 250px), 1fr));
+  gap: var(--gap, 2rem);
+} 

@@ -1,0 +1,107 @@
+.contact {
+  padding: var(--section-padding);
+  position: relative;
+}
+
+.contact-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 3rem;
+  border-radius: 1rem;
+}
+
+.contact-methods {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.contact-method {
+  padding: 1.5rem;
+  border-radius: 0.5rem;
+  text-align: center;
+  text-decoration: none;
+  color: var(--text-color);
+  transition: transform 0.3s ease;
+}
+
+.method-icon {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+  display: block;
+}
+
+.contact-form {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 1rem;
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 0.5rem;
+  color: var(--text-color);
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  border-color: var(--primary-color);
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(99, 102, 241, 0.2);
+}
+
+.form-group textarea {
+  height: 150px;
+  resize: vertical;
+}
+
+.submit-btn {
+  padding: 1rem 2rem;
+  font-size: 1rem;
+  font-weight: 500;
+  border-radius: 0.5rem;
+  background: var(--gradient-1);
+  color: white;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.submit-btn:hover {
+  background: var(--gradient-2);
+  transform: translateY(-2px);
+}
+
+.form-group input:disabled,
+.form-group textarea:disabled,
+.submit-btn:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.submit-btn:disabled {
+  background-color: #9ca3af;
+  border-color: #9ca3af;
+}
+
+.form-status {
+  margin-top: 1rem;
+  padding: 1rem;
+  border-radius: 0.5rem;
+}
+
+.form-status.success {
+  background-color: #dcfce7;
+  color: #166534;
+}
+
+.form-status.error {
+  background-color: #fee2e2;
+  color: #991b1b;
+} 
