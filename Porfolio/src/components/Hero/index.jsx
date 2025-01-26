@@ -1,16 +1,32 @@
 import { motion } from 'framer-motion';
 import './styles.css';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 const Hero = () => {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+  const [text, setText] = useState("");
+  const fullText = "Welcome to my Portfolio";
+  
+  useEffect(() => {
+    let index = 0;
+    const intervalId = setInterval(() => {
+      setText(fullText.slice(0, index));
+      index++;
+      if (index > fullText.length) {
+        index = 0;
+      }
+    }, 200);
+
+    return () => clearInterval(intervalId);
+  }, []);
 
   const handleMouseMove = (e) => {
     const { clientX, clientY } = e;
     const { innerWidth, innerHeight } = window;
     
-    const x = (clientX / innerWidth - 0.5) * 20;
-    const y = (clientY / innerHeight - 0.5) * 20;
+    // Reduced movement effect for smoother experience
+    const x = (clientX / innerWidth - 0.5) * 10;
+    const y = (clientY / innerHeight - 0.5) * 10;
     
     setMousePosition({ x, y });
   };
@@ -20,6 +36,10 @@ const Hero = () => {
       className="hero" 
       id="home"
       onMouseMove={handleMouseMove}
+      style={{ 
+        fontFamily: "'Poppins', sans-serif",
+        fontWeight: "600"
+      }}
     >
       <div className="hero-background">
         <div className="hero-gradient"></div>
